@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="theme-color" content="#0f172a">
+    <meta name="description" content="Zyntech Solutions IT - Desarrollo Backend Profesional. APIs, microservicios y arquitecturas escalables.">
+    
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Zyntech Solutions">
+    
+    <!-- SEO -->
+    <meta name="keywords" content="desarrollo backend, APIs, microservicios, cloud, bases de datos, Ecuador">
+    <meta name="author" content="Zyntech Solutions IT">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Zyntech Solutions IT - Desarrollo Backend Profesional">
+    <meta property="og:description" content="Transformamos ideas en sistemas robustos y escalables">
+    <meta property="og:type" content="website">
+    
+    <title>Zyntech Solutions IT - Desarrollo Backend Profesional</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Fonts - Optimized loading -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Loader -->
+    <div id="loader" class="loader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <!-- Install PWA Banner -->
+    <div id="install-banner" class="install-banner hidden">
+        <div class="install-content">
+            <svg class="install-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+            </svg>
+            <span>Instala la app para acceso rápido</span>
+            <button id="install-button" class="install-btn">Instalar</button>
+            <button id="close-banner" class="close-btn">×</button>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                    </svg>
+                </div>
+                <span class="logo-text">Zyntech Solutions IT</span>
+            </div>
+
+            <!-- Desktop Menu -->
+            <div class="nav-menu" id="nav-menu">
+                <a href="#inicio" class="nav-link active" data-section="inicio">Inicio</a>
+                <a href="#servicios" class="nav-link" data-section="servicios">Servicios</a>
+                <a href="#tecnologias" class="nav-link" data-section="tecnologias">Tecnologías</a>
+                <a href="#contacto" class="nav-link" data-section="contacto">Contacto</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section id="inicio" class="section hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        Soluciones Backend de Alto Rendimiento
+                    </h1>
+                    <p class="hero-subtitle">
+                        Transformamos ideas en sistemas robustos, escalables y eficientes que impulsan el éxito de tu negocio
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#contacto" class="btn btn-primary">Iniciar Proyecto</a>
+                        <a href="#servicios" class="btn btn-secondary">Ver Servicios</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="servicios" class="section services-section">
+            <div class="container">
+                <h2 class="section-title">
+                    Nuestros <span class="text-gradient">Servicios</span>
+                </h2>
+                <div class="services-grid" id="services-container">
+                    <!-- Loaded dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Technologies Section -->
+        <section id="tecnologias" class="section tech-section">
+            <div class="container">
+                <h2 class="section-title">
+                    <span class="text-gradient">Tecnologías</span> que Dominamos
+                </h2>
+                <div class="tech-grid" id="tech-container">
+                    <!-- Loaded dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contacto" class="section contact-section">
+            <div class="container">
+                <h2 class="section-title">
+                    ¿Listo para <span class="text-gradient">Transformar</span> tu Proyecto?
+                </h2>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <svg class="contact-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                            <div>
+                                <h3>Email</h3>
+                                <a href="mailto:zyntech.solutions.it@gmail.com">zyntech.solutions.it@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <svg class="contact-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <div>
+                                <h3>Ubicación</h3>
+                                <p>Quito, Ecuador</p>
+                            </div>
+                        </div>
+                        <div class="social-links">
+                            <h3>Síguenos</h3>
+                            <div class="social-icons">
+                                <a href="#" aria-label="GitHub">
+                                    <svg fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                    </svg>
+                                </a>
+                                <a href="#" aria-label="LinkedIn">
+                                    <svg fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-wrapper">
+                        <h3>Envíanos un mensaje</h3>
+                        <div id="contact-form" class="contact-form">
+                            <input type="text" placeholder="Nombre" class="form-input" id="name" required>
+                            <input type="email" placeholder="Email" class="form-input" id="email" required>
+                            <textarea placeholder="Mensaje" rows="4" class="form-input" id="message" required></textarea>
+                            <button type="button" class="btn btn-primary btn-full" id="send-message">Enviar Mensaje</button>
+                        </div>
+                        <div id="form-success" class="form-message success hidden">
+                            ✓ ¡Mensaje enviado! Te contactaremos pronto.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Zyntech Solutions IT. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/components.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
