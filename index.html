@@ -13,6 +13,11 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Zyntech Solutions">
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/icon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/icon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/icon-180x180.png">
+    
     <!-- SEO -->
     <meta name="keywords" content="desarrollo backend, APIs, microservicios, cloud, bases de datos, Ecuador">
     <meta name="author" content="Zyntech Solutions IT">
@@ -67,8 +72,8 @@
             <!-- Desktop Menu -->
             <div class="nav-menu" id="nav-menu">
                 <a href="#inicio" class="nav-link active" data-section="inicio">Inicio</a>
+                <a href="#nosotros" class="nav-link" data-section="nosotros">Nosotros</a>
                 <a href="#servicios" class="nav-link" data-section="servicios">Servicios</a>
-                <a href="#tecnologias" class="nav-link" data-section="tecnologias">Tecnologías</a>
                 <a href="#contacto" class="nav-link" data-section="contacto">Contacto</a>
             </div>
 
@@ -88,14 +93,44 @@
             <div class="container">
                 <div class="hero-content">
                     <h1 class="hero-title">
-                        Soluciones Backend de Alto Rendimiento
+                        Soluciones Tecnológicas y Empresariales Integrales
                     </h1>
                     <p class="hero-subtitle">
-                        Transformamos ideas en sistemas robustos, escalables y eficientes que impulsan el éxito de tu negocio
+                        Transformamos ideas en sistemas robustos, escalables y eficientes. Desarrollo, consultoría, contabilidad y más. Todo lo que tu negocio necesita en un solo lugar.
                     </p>
                     <div class="hero-actions">
                         <a href="#contacto" class="btn btn-primary">Iniciar Proyecto</a>
                         <a href="#servicios" class="btn btn-secondary">Ver Servicios</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section (Misión y Visión) -->
+        <section id="nosotros" class="section about-section">
+            <div class="container">
+                <h2 class="section-title">
+                    Quiénes <span class="text-gradient">Somos</span>
+                </h2>
+                <div class="about-grid">
+                    <div class="about-card">
+                        <div class="about-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                            </svg>
+                        </div>
+                        <h3>Nuestra Misión</h3>
+                        <p>Proporcionar soluciones tecnológicas y empresariales de excelencia que impulsen el crecimiento de nuestros clientes. Nos comprometemos a ofrecer servicios de desarrollo de software, infraestructura tecnológica, asesoramiento contable y reportería analítica, combinando innovación, calidad y atención personalizada para transformar desafíos en oportunidades de éxito.</p>
+                    </div>
+                    <div class="about-card">
+                        <div class="about-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                            </svg>
+                        </div>
+                        <h3>Nuestra Visión</h3>
+                        <p>Ser la empresa líder en soluciones tecnológicas y empresariales integrales en Ecuador, reconocida por nuestra capacidad de anticiparnos a las necesidades del mercado. Aspiramos a construir alianzas estratégicas de largo plazo con nuestros clientes, siendo su socio de confianza en la transformación digital y el crecimiento sostenible de sus organizaciones.</p>
                     </div>
                 </div>
             </div>
@@ -108,18 +143,6 @@
                     Nuestros <span class="text-gradient">Servicios</span>
                 </h2>
                 <div class="services-grid" id="services-container">
-                    <!-- Loaded dynamically -->
-                </div>
-            </div>
-        </section>
-
-        <!-- Technologies Section -->
-        <section id="tecnologias" class="section tech-section">
-            <div class="container">
-                <h2 class="section-title">
-                    <span class="text-gradient">Tecnologías</span> que Dominamos
-                </h2>
-                <div class="tech-grid" id="tech-container">
                     <!-- Loaded dynamically -->
                 </div>
             </div>
@@ -189,7 +212,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Zyntech Solutions IT. Todos los derechos reservados.</p>
+            <p>&copy; <span id="current-year"></span> Zyntech Solutions IT. Todos los derechos reservados.</p>
         </div>
     </footer>
 

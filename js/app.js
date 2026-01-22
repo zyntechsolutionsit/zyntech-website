@@ -12,11 +12,20 @@ const App = {
 
     // Inicialización
     init() {
+        this.setCurrentYear();
         this.hideLoader();
         this.setupNavigation();
         this.setupScrollEffects();
         this.setupContactForm();
         this.setupPWA();
+    },
+
+    // Establece el año actual en el footer
+    setCurrentYear() {
+        const yearElement = document.getElementById('current-year');
+        if (yearElement) {
+            yearElement.textContent = new Date().getFullYear();
+        }
     },
 
     // Oculta el loader
