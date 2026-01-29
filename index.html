@@ -32,6 +32,14 @@
     <!-- Preload critical resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("8v4Coa0kLiC7Bx3ut"); 
+        })();
+    </script>
     
     <!-- CSS -->
     <link rel="stylesheet" href="css/styles.css">
@@ -201,7 +209,7 @@
                             <button type="button" class="btn btn-primary btn-full" id="send-message">Enviar Mensaje</button>
                         </div>
                         <div id="form-success" class="form-message success hidden">
-                            ✓ ¡Mensaje enviado! Te contactaremos pronto.
+                            ✓ ¡Mensaje enviado exitosamente! Te responderemos a la brevedad.
                         </div>
                     </div>
                 </div>
@@ -215,6 +223,18 @@
             <p>&copy; <span id="current-year"></span> Zyntech Solutions IT. Todos los derechos reservados.</p>
         </div>
     </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/593996162824?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20sus%20servicios" 
+       class="whatsapp-float" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       aria-label="Contactar por WhatsApp">
+        <svg viewBox="0 0 32 32" fill="currentColor">
+            <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.127c2.42 1.37 5.173 2.127 8.067 2.127 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.467c-2.482 0-4.908-0.646-7.07-1.87l-0.507-0.292-4.713 1.262 1.262-4.669-0.292-0.508c-1.207-2.100-1.847-4.507-1.847-6.957 0-7.384 6.083-13.467 13.467-13.467s13.467 6.083 13.467 13.467-6.083 13.467-13.467 13.467zM21.851 18.384c-0.301-0.15-1.767-0.867-2.041-0.967s-0.473-0.15-0.672 0.15c-0.199 0.301-0.773 0.967-0.948 1.166s-0.349 0.226-0.649 0.075c-0.301-0.15-1.267-0.465-2.416-1.483-0.894-0.793-1.496-1.773-1.671-2.074s-0.018-0.463 0.132-0.613c0.135-0.135 0.301-0.349 0.451-0.524s0.199-0.301 0.301-0.501c0.101-0.199 0.051-0.374-0.025-0.524s-0.672-1.62-0.922-2.222c-0.241-0.587-0.487-0.508-0.672-0.517-0.174-0.008-0.374-0.010-0.573-0.010s-0.524 0.075-0.798 0.374c-0.274 0.301-1.045 1.020-1.045 2.486s1.070 2.885 1.219 3.084c0.15 0.199 2.107 3.216 5.104 4.511 0.713 0.308 1.270 0.492 1.703 0.630 0.717 0.228 1.369 0.196 1.885 0.119 0.575-0.086 1.767-0.721 2.016-1.417s0.249-1.294 0.174-1.417c-0.075-0.124-0.274-0.199-0.573-0.349z"/>
+        </svg>
+        <span class="whatsapp-tooltip">¿Necesitas ayuda? Chatea con nosotros</span>
+    </a>
 
     <!-- Scripts -->
     <script src="js/components.js"></script>

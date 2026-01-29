@@ -162,12 +162,14 @@ const App = {
     },
 
     // Configuración del formulario de contacto
+    // Configuración del formulario de contacto
     setupContactForm() {
         const sendButton = document.getElementById('send-message');
         const nameInput = document.getElementById('name');
         const emailInput = document.getElementById('email');
         const messageInput = document.getElementById('message');
         const successMessage = document.getElementById('form-success');
+        const contactForm = document.getElementById('contact-form');
 
         if (sendButton) {
             sendButton.addEventListener('click', (e) => {
@@ -177,7 +179,7 @@ const App = {
                 const email = emailInput.value.trim();
                 const message = messageInput.value.trim();
 
-                // Validación simple
+                // Validación
                 if (!name || !email || !message) {
                     alert('Por favor completa todos los campos');
                     return;
@@ -188,29 +190,45 @@ const App = {
                     return;
                 }
 
-                // Simular envío (aquí integrarías con tu backend)
+                // Deshabilitar botón y mostrar estado de envío
                 sendButton.disabled = true;
                 sendButton.textContent = 'Enviando...';
 
-                setTimeout(() => {
-                    // Limpiar formulario
-                    nameInput.value = '';
-                    emailInput.value = '';
-                    messageInput.value = '';
+                // Parámetros para EmailJS
+                const templateParams = {
+                    from_name: name,
+                    from_email: email,
+                    message: message,
+                    to_email: 'zyntech.solutions.it@gmail.com'
+                };
 
-                    // Mostrar mensaje de éxito
-                    successMessage.classList.remove('hidden');
-                    sendButton.disabled = false;
-                    sendButton.textContent = 'Enviar Mensaje';
+                // Enviar con EmailJS
+                emailjs.send('service_x2bm01r', 'template_wlgna9x', templateParams)
+                    .then((response) => {
+                        console.log('Email enviado exitosamente!', response.status, response.text);
+                        
+                        // Limpiar formulario
+                        nameInput.value = '';
+                        emailInput.value = '';
+                        messageInput.value = '';
 
-                    // Ocultar mensaje después de 5 segundos
-                    setTimeout(() => {
-                        successMessage.classList.add('hidden');
-                    }, 5000);
+                        // Mostrar mensaje de éxito
+                        successMessage.classList.remove('hidden');
+                        sendButton.disabled = false;
+                        sendButton.textContent = 'Enviar Mensaje';
 
-                    // Aquí integrarías con tu servicio de email (EmailJS, Formspree, etc.)
-                    console.log('Formulario enviado:', { name, email, message });
-                }, 1500);
+                        // Ocultar mensaje después de 5 segundos
+                        setTimeout(() => {
+                            successMessage.classList.add('hidden');
+                        }, 5000);
+                    })
+                    .catch((error) => {
+                        console.error('Error al enviar email:', error);
+                        alert('Hubo un error al enviar el mensaje. Por favor intenta nuevamente.');
+                        
+                        sendButton.disabled = false;
+                        sendButton.textContent = 'Enviar Mensaje';
+                    });
             });
         }
     },
