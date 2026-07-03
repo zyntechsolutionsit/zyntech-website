@@ -1,1 +1,526 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Términos y Condiciones — MesaGo</title>
+<style>
+  :root{
+    --primary:#D85A30;      /* naranja terracota (marca) */
+    --primary-d:#B8481F;
+    --dark:#1A1A2E;         /* azul noche */
+    --cream:#F1EFE8;        /* superficie */
+    --bg:#FFFFFF;
+    --text:#111827;
+    --muted:#6B7280;
+    --border:#E5E7EB;
+    --ok:#22C55E;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--bg); color:var(--text);
+    font-family:'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
+    line-height:1.65; font-size:16px;
+  }
+  a{color:var(--primary); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  /* ── Header ── */
+  header.hero{
+    background:linear-gradient(135deg,var(--dark) 0%, #2A2A4A 100%);
+    color:#fff; padding:48px 24px 40px;
+  }
+  .hero-inner{max-width:900px; margin:0 auto;}
+  .brand{display:flex; align-items:center; gap:14px;}
+  .logo-badge{
+    width:56px; height:56px; border-radius:16px; background:var(--primary);
+    display:flex; align-items:center; justify-content:center; font-weight:800; font-size:26px; color:#fff;
+    box-shadow:0 8px 22px rgba(216,90,48,.4);
+  }
+  .brand h1{margin:0; font-size:26px; letter-spacing:.5px;}
+  .brand span{color:#F0997B; font-weight:600; font-size:14px;}
+  header.hero h2{margin:26px 0 6px; font-size:34px; font-weight:800;}
+  header.hero p.sub{margin:0; color:#C9C7D6; font-size:15px;}
+  .meta{margin-top:22px; display:flex; flex-wrap:wrap; gap:10px;}
+  .chip{background:rgba(255,255,255,.10); border:1px solid rgba(255,255,255,.18);
+        padding:6px 12px; border-radius:999px; font-size:13px;}
+
+  /* ── Layout ── */
+  main{max-width:900px; margin:0 auto; padding:0 24px 80px;}
+  .notice{
+    background:#FEF3E9; border:1px solid #F3C6A8; border-left:5px solid var(--primary);
+    padding:16px 18px; border-radius:10px; margin:28px 0; font-size:14px; color:#7a3d20;
+  }
+
+  /* ── TOC ── */
+  nav.toc{
+    background:var(--cream); border:1px solid var(--border); border-radius:14px;
+    padding:22px 26px; margin:28px 0 8px;
+  }
+  nav.toc h3{margin:0 0 12px; font-size:15px; text-transform:uppercase; letter-spacing:1px; color:var(--muted);}
+  nav.toc ol{margin:0; padding-left:20px; columns:2; column-gap:32px;}
+  nav.toc li{margin:5px 0; break-inside:avoid;}
+  @media(max-width:640px){ nav.toc ol{columns:1;} }
+
+  /* ── Sections ── */
+  section{padding-top:26px; margin-top:12px; border-top:1px solid var(--border);}
+  section:first-of-type{border-top:0;}
+  h3.sec{
+    font-size:21px; color:var(--dark); margin:6px 0 10px;
+    display:flex; align-items:baseline; gap:10px;
+  }
+  h3.sec .num{
+    color:#fff; background:var(--primary); font-size:14px; font-weight:800;
+    min-width:30px; height:30px; border-radius:8px; display:inline-flex; align-items:center; justify-content:center;
+  }
+  h4{color:var(--primary-d); font-size:16px; margin:18px 0 6px;}
+  p{margin:10px 0;}
+  ul,ol.body{margin:10px 0; padding-left:22px;}
+  li{margin:6px 0;}
+  .lead{font-size:16px;}
+  table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14px;}
+  th,td{border:1px solid var(--border); padding:10px 12px; text-align:left; vertical-align:top;}
+  th{background:var(--cream); color:var(--dark);}
+  .callout{background:var(--cream); border-radius:10px; padding:14px 16px; margin:14px 0; font-size:14px;}
+  .back{display:inline-block; margin-top:8px; font-size:13px; color:var(--muted);}
+
+  footer{background:var(--dark); color:#C9C7D6; padding:34px 24px; font-size:13px;}
+  footer .fi{max-width:900px; margin:0 auto;}
+  footer strong{color:#fff;}
+
+  @media print{
+    header.hero, footer{-webkit-print-color-adjust:exact; print-color-adjust:exact;}
+    nav.toc{break-inside:avoid;}
+    .back{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero" id="top">
+  <div class="hero-inner">
+    <div class="brand">
+      <div class="logo-badge">M</div>
+      <div>
+        <h1>MesaGo</h1>
+        <span>por Zyntech Solutions</span>
+      </div>
+    </div>
+    <h2>Términos y Condiciones de Uso</h2>
+    <p class="sub">Contrato de licencia y prestación de servicios de software (SaaS)</p>
+    <div class="meta">
+      <span class="chip">Última actualización: 02/07/2026</span>
+      <span class="chip">Vigencia: desde su aceptación</span>
+      <span class="chip">Jurisdicción: República del Ecuador</span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <p class="lead">
+    Los presentes Términos y Condiciones (en adelante, los <strong>“Términos”</strong>) regulan el
+    acceso y uso de la aplicación móvil y plataforma <strong>MesaGo</strong> (en adelante, la
+    <strong>“Aplicación”</strong> o el <strong>“Servicio”</strong>), de titularidad de
+    <strong>Zyntech Solutions</strong>, con RUC N.º
+    <strong>0929843639001</strong> y domicilio en <strong>Guayaquil, Ecuador</strong>,
+    Ecuador (en adelante, <strong>“MesaGo”</strong>, el <strong>“Proveedor”</strong> o
+    <strong>“nosotros”</strong>). Al descargar, registrarse, acceder o utilizar la Aplicación, usted
+    (el <strong>“Usuario”</strong>) declara haber leído, entendido y aceptado íntegramente estos
+    Términos, así como la <a href="#s16">Política de Privacidad</a>. Si no está de acuerdo, absténgase
+    de usar el Servicio.
+  </p>
+
+  <nav class="toc">
+    <h3>Contenido</h3>
+    <ol>
+      <li><a href="#s1">Aceptación del contrato</a></li>
+      <li><a href="#s2">Definiciones</a></li>
+      <li><a href="#s3">Objeto y descripción del Servicio</a></li>
+      <li><a href="#s4">Cuentas, roles y credenciales</a></li>
+      <li><a href="#s5">Licencia de uso</a></li>
+      <li><a href="#s6">Planes, suscripción y pagos</a></li>
+      <li><a href="#s7">Obligaciones del Usuario</a></li>
+      <li><a href="#s8">Uso aceptable y conductas prohibidas</a></li>
+      <li><a href="#s9">Contenido del Usuario</a></li>
+      <li><a href="#s10">Propiedad intelectual</a></li>
+      <li><a href="#s11">Disponibilidad, soporte y actualizaciones</a></li>
+      <li><a href="#s12">Modo sin conexión y sincronización</a></li>
+      <li><a href="#s13">Suspensión y terminación</a></li>
+      <li><a href="#s14">Garantías y descargo</a></li>
+      <li><a href="#s15">Limitación de responsabilidad</a></li>
+      <li><a href="#s16">Protección de datos personales</a></li>
+      <li><a href="#s17">Confidencialidad</a></li>
+      <li><a href="#s18">Indemnización</a></li>
+      <li><a href="#s19">Modificaciones a los Términos</a></li>
+      <li><a href="#s20">Fuerza mayor y caso fortuito</a></li>
+      <li><a href="#s21">Cesión y subcontratación</a></li>
+      <li><a href="#s22">Notificaciones</a></li>
+      <li><a href="#s23">Ley aplicable y solución de controversias</a></li>
+      <li><a href="#s24">Disposiciones generales</a></li>
+      <li><a href="#s25">Contacto</a></li>
+    </ol>
+  </nav>
+
+  <section id="s1">
+    <h3 class="sec"><span class="num">1</span> Aceptación del contrato</h3>
+    <p>La utilización de la Aplicación implica la aceptación plena y sin reservas de todas y cada una
+    de las cláusulas de estos Términos, que tienen la naturaleza de un contrato de adhesión celebrado
+    por medios electrónicos, con plena validez conforme a la <strong>Ley de Comercio Electrónico,
+    Firmas y Mensajes de Datos</strong> del Ecuador. La aceptación se perfecciona al marcar la casilla
+    de conformidad, crear una cuenta o hacer uso efectivo del Servicio, lo que ocurra primero.</p>
+    <p>Si el Usuario acepta estos Términos en nombre de una empresa o persona jurídica, declara y
+    garantiza que cuenta con la capacidad legal y las facultades suficientes para obligar a dicha
+    entidad, la cual quedará vinculada por este contrato.</p>
+    <p>El Usuario declara ser mayor de edad y tener plena capacidad legal para contratar conforme al
+    <strong>Código Civil</strong> ecuatoriano.</p>
+    <a class="back" href="#top">↑ Volver al inicio</a>
+  </section>
+
+  <section id="s2">
+    <h3 class="sec"><span class="num">2</span> Definiciones</h3>
+    <table>
+      <tr><th>Término</th><th>Significado</th></tr>
+      <tr><td><strong>Aplicación / Servicio</strong></td><td>La plataforma de software MesaGo para la gestión de pedidos, mesas, menú, inventario y reportes de establecimientos de alimentos y bebidas.</td></tr>
+      <tr><td><strong>Empresa / Cliente</strong></td><td>Persona natural o jurídica que contrata el Servicio para uno o más de sus establecimientos (sucursales).</td></tr>
+      <tr><td><strong>Usuario</strong></td><td>Toda persona que accede a la Aplicación bajo alguno de los roles habilitados (superadministrador, administrador, encargado o mesero).</td></tr>
+      <tr><td><strong>Cuenta</strong></td><td>Conjunto de credenciales y datos que permiten el acceso individual al Servicio.</td></tr>
+      <tr><td><strong>Contenido del Usuario</strong></td><td>Datos que el Usuario ingresa o genera en la Aplicación (pedidos, menú, precios, mesas, reportes, etc.).</td></tr>
+      <tr><td><strong>Suscripción / Licencia</strong></td><td>Derecho temporal de uso del Servicio conforme al plan contratado por sucursal.</td></tr>
+      <tr><td><strong>Datos personales</strong></td><td>Toda información sobre una persona natural identificada o identificable, según la LOPDP.</td></tr>
+    </table>
+    <a class="back" href="#top">↑ Volver al inicio</a>
+  </section>
+
+  <section id="s3">
+    <h3 class="sec"><span class="num">3</span> Objeto y descripción del Servicio</h3>
+    <p>MesaGo es un software como servicio (SaaS) que permite a establecimientos de alimentos y
+    bebidas gestionar la toma de pedidos en mesa, el estado de las mesas, el menú, el control de
+    inventario por producto, la administración de usuarios operativos y la generación de reportes de
+    ventas y actividad.</p>
+    <p>El Servicio se ofrece bajo un modelo multiempresa y multisucursal, con distintos roles de
+    acceso. MesaGo se limita a proporcionar la herramienta tecnológica; la operación del negocio, la
+    veracidad de los precios, la facturación tributaria, el cumplimiento sanitario y cualquier otra
+    obligación propia del establecimiento son de exclusiva responsabilidad del Cliente.</p>
+    <div class="callout"><strong>Importante:</strong> MesaGo <strong>no</strong> es un sistema de
+    facturación electrónica ni sustituye los comprobantes de venta exigidos por el Servicio de Rentas
+    Internas (SRI). El Cliente es responsable de emitir los comprobantes que la normativa tributaria
+    ecuatoriana exija.</div>
+    <a class="back" href="#top">↑ Volver al inicio</a>
+  </section>
+
+  <section id="s4">
+    <h3 class="sec"><span class="num">4</span> Cuentas, roles y credenciales</h3>
+    <p>El acceso al Servicio se realiza mediante credenciales personales e intransferibles. La
+    Aplicación contempla, de manera enunciativa, los siguientes roles: <strong>superadministrador</strong>
+    (titular del servicio), <strong>administrador</strong> (dueño de una empresa),
+    <strong>encargado</strong> (gestión de una sucursal) y <strong>mesero</strong> (toma de pedidos),
+    cada uno con distintos niveles de acceso.</p>
+    <ul>
+      <li>El Usuario es responsable de mantener la confidencialidad de sus credenciales y PIN de
+      acceso, y de todas las actividades realizadas desde su cuenta.</li>
+      <li>El Usuario debe notificar de inmediato al Proveedor cualquier uso no autorizado o brecha de
+      seguridad de la que tenga conocimiento.</li>
+      <li>El Cliente es responsable de crear, administrar y desactivar las cuentas de su personal
+      operativo, así como del uso que estos hagan del Servicio.</li>
+      <li>El Usuario garantiza que la información de registro es veraz, exacta y se mantiene
+      actualizada.</li>
+    </ul>
+    <a class="back" href="#top">↑ Volver al inicio</a>
+  </section>
+
+  <section id="s5">
+    <h3 class="sec"><span class="num">5</span> Licencia de uso</h3>
+    <p>Sujeto al cumplimiento de estos Términos y al pago de la suscripción correspondiente, el
+    Proveedor otorga al Cliente una licencia <strong>limitada, no exclusiva, intransferible,
+    revocable y sin derecho a sublicenciar</strong>, para acceder y utilizar la Aplicación con fines
+    internos de gestión de su(s) establecimiento(s), durante la vigencia de la suscripción.</p>
+    <p>Queda expresamente prohibido: (i) copiar, modificar, descompilar, realizar ingeniería inversa o
+    crear obras derivadas del Servicio; (ii) revender, arrendar o ceder el acceso a terceros;
+    (iii) eludir medidas de seguridad; o (iv) usar el Servicio para desarrollar un producto o servicio
+    competidor.</p>
+    <a class="back" href="#top">↑ Volver al inicio</a>
+  </section>
+
+  <section id="s6">
+    <h3 class="sec"><span class="num">6</span> Planes, suscripción y pagos</h3>
+    <p>El Servicio se comercializa por <strong>suscripción por sucursal</strong>, conforme a los
+    planes vigentes (por ejemplo, Básico, Estándar y Premium), que definen los límites de recursos
+    (usuarios, mesas, etc.) y el precio aplicable. Los establecimientos nuevos pueden contar con un
+    <strong>período de prueba</strong> gratuito según se anuncie al momento de la contratación.</p>
+    <h4>6.1 Precios y tributos</h4>
+    <p>Los precios se expresan en dólares de los Estados Unidos de América (USD), moneda de curso
+    legal en el Ecuador.</p>
+    <div class="callout"><strong>Importante:</strong> todos los precios publicados —ya sea en la
+    aplicación, en el sitio web, en materiales promocionales o en cualquier otro medio— se muestran
+    <strong>SIN IMPUESTOS</strong>. El Impuesto al Valor Agregado (IVA) y cualquier otro tributo que
+    corresponda se añadirán al momento de la facturación, conforme a la normativa tributaria vigente en
+    el Ecuador.</div>
+    <h4>6.2 Renovación y mora</h4>
+    <ul>
+      <li>La suscripción se renueva por los períodos contratados. La falta de pago faculta al Proveedor
+      a suspender o limitar el acceso al Servicio, previa comunicación al Cliente.</li>
+      <li>Los meses pagados se acumulan sobre la vigencia existente; el período de prueba gratuito no
+      se pierde por la contratación de un plan pago.</li>
+      <li>El cambio de plan (nivel) no altera la fecha de vencimiento de la suscripción.</li>
+    </ul>
+    <h4>6.3 Reembolsos</h4>
+    <p>Salvo disposición imperativa de la <strong>Ley Orgánica de Defensa del Consumidor</strong>, las
+    sumas pagadas por períodos ya iniciados no son reembolsables. Cualquier política de reembolso
+    específica se comunicará por escrito.</p>
+    <a class="back" href="#top">↑ Volver al inicio</a>
+  </section>
+
+  <section id="s7">
+    <h3 class="sec"><span class="num">7</span> Obligaciones del Usuario</h3>
+    <ul>
+      <li>Utilizar el Servicio conforme a la ley, la moral, el orden público y estos Términos.</li>
+      <li>Ingresar información veraz y mantener actualizados los datos de su cuenta y negocio.</li>
+      <li>Respetar los derechos de propiedad intelectual del Proveedor y de terceros.</li>
+      <li>Contar con los dispositivos, conectividad y software necesarios para el uso del Servicio.</li>
+      <li>Responsabilizarse por el respaldo de la información que considere crítica, sin perjuicio de
+      las medidas de resguardo del Proveedor.</li>
+      <li>Cumplir con sus obligaciones tributarias, laborales, sanitarias y de protección de datos
+      frente a sus propios clientes y empleados.</li>
+    </ul>
+    <a class="back" href="#top">↑ Volver al inicio</a>
+  </section>
+
+  <section id="s8">
+    <h3 class="sec"><span class="num">8</span> Uso aceptable y conductas prohibidas</h3>
+    <p>El Usuario se obliga a no:</p>
+    <ul>
+      <li>Usar el Servicio con fines fraudulentos, ilícitos o no autorizados.</li>
+      <li>Introducir virus, malware o código malicioso, ni realizar acciones que afecten la integridad,
+      seguridad o disponibilidad de la plataforma.</li>
+      <li>Intentar acceder a cuentas, datos o áreas del sistema sin autorización.</li>
+      <li>Sobrecargar la infraestructura o realizar pruebas de penetración sin consentimiento escrito.</li>
+      <li>Suplantar la identidad de otra persona o entidad.</li>
+      <li>Utilizar el Servicio para almacenar o transmitir contenido que infrinja derechos de terceros
+      o la legislación ecuatoriana.</li>
+    </ul>
+    <p>El incumplimiento de esta cláusula faculta al Proveedor a suspender o cancelar el acceso de
+    forma inmediata, sin perjuicio de las acciones legales que correspondan.</p>
+    <a class="back" href="#top">↑ Volver al inicio</a>
+  </section>
+
+  <section id="s9">
+    <h3 class="sec"><span class="num">9</span> Contenido del Usuario</h3>
+    <p>El Cliente es el único responsable del Contenido del Usuario que ingresa o genera en la
+    Aplicación y garantiza que tiene derecho a utilizarlo. El Cliente conserva la titularidad de dicho
+    Contenido.</p>
+    <p>El Cliente otorga al Proveedor una licencia limitada para alojar, procesar y transmitir el
+    Contenido del Usuario con la única finalidad de prestar y mejorar el Servicio, así como para
+    cumplir obligaciones legales. El Proveedor podrá elaborar información estadística agregada y
+    anonimizada que no permita identificar a personas ni negocios.</p>
+    <a class="back" href="#top">↑ Volver al inicio</a>
+  </section>
+
+  <section id="s10">
+    <h3 class="sec"><span class="num">10</span> Propiedad intelectual</h3>
+    <p>La Aplicación, su código fuente, diseño, marcas, logotipos, nombre comercial “MesaGo”,
+    interfaces, documentación y todo elemento que la compone son propiedad exclusiva del Proveedor o de
+    sus licenciantes, y están protegidos por el <strong>Código Orgánico de la Economía Social de los
+    Conocimientos, Creatividad e Innovación (Código Ingenios)</strong> y demás normas de propiedad
+    intelectual aplicables. Estos Términos no transfieren al Usuario ningún derecho de propiedad
+    intelectual, salvo la licencia de uso descrita en la cláusula 5.</p>
+    <a class="back" href="#top">↑ Volver al inicio</a>
+  </section>
+
+  <section id="s11">
+    <h3 class="sec"><span class="num">11</span> Disponibilidad, soporte y actualizaciones</h3>
+    <p>El Proveedor realizará esfuerzos comercialmente razonables para mantener el Servicio disponible;
+    sin embargo, no garantiza una disponibilidad ininterrumpida ni libre de errores. El Servicio podrá
+    suspenderse temporalmente por mantenimiento, actualizaciones o causas de fuerza mayor.</p>
+    <p>El Proveedor podrá publicar actualizaciones y nuevas versiones de la Aplicación. Algunas
+    actualizaciones podrán ser obligatorias para continuar usando el Servicio por razones de seguridad
+    o compatibilidad. El soporte se prestará por los canales indicados en la cláusula 25, en el horario
+    y condiciones que el Proveedor determine.</p>
+    <a class="back" href="#top">↑ Volver al inicio</a>
+  </section>
+
+  <section id="s12">
+    <h3 class="sec"><span class="num">12</span> Modo sin conexión y sincronización</h3>
+    <p>La Aplicación puede operar sin conexión a internet, almacenando información localmente en el
+    dispositivo y sincronizándola con la nube cuando exista conectividad. El Usuario reconoce que:</p>
+    <ul>
+      <li>La información generada sin conexión puede tardar en reflejarse en los reportes hasta que se
+      complete la sincronización.</li>
+      <li>El uso simultáneo del mismo inventario desde varios dispositivos sin conexión puede generar
+      diferencias temporales (por ejemplo, en el control de stock), inherentes al modo offline.</li>
+      <li>La pérdida, daño, reinstalación o borrado de datos del dispositivo antes de sincronizar puede
+      ocasionar la pérdida de información no enviada a la nube.</li>
+    </ul>
+    <a class="back" href="#top">↑ Volver al inicio</a>
+  </section>
+
+  <section id="s13">
+    <h3 class="sec"><span class="num">13</span> Suspensión y terminación</h3>
+    <p>El Proveedor podrá suspender o terminar el acceso al Servicio, total o parcialmente, en caso de:
+    (i) incumplimiento de estos Términos; (ii) falta de pago; (iii) uso indebido o riesgo para la
+    seguridad; o (iv) requerimiento de autoridad competente.</p>
+    <p>El Cliente podrá dar por terminada la suscripción en cualquier momento, sin derecho a reembolso
+    por los períodos ya iniciados, salvo disposición legal en contrario. Terminada la relación, el
+    acceso al Servicio cesará y los datos se conservarán o eliminarán conforme a la Política de
+    Privacidad y la normativa aplicable.</p>
+    <a class="back" href="#top">↑ Volver al inicio</a>
+  </section>
+
+  <section id="s14">
+    <h3 class="sec"><span class="num">14</span> Garantías y descargo</h3>
+    <p>El Servicio se proporciona <strong>“tal cual” y “según disponibilidad”</strong>. En la máxima
+    medida permitida por la ley, el Proveedor no otorga garantías implícitas de comerciabilidad,
+    idoneidad para un fin particular, exactitud o no infracción. El Usuario asume la responsabilidad
+    por la selección del Servicio y por los resultados obtenidos de su uso.</p>
+    <p>Nada en esta cláusula limita los derechos irrenunciables reconocidos al consumidor por la
+    <strong>Ley Orgánica de Defensa del Consumidor</strong> del Ecuador.</p>
+    <a class="back" href="#top">↑ Volver al inicio</a>
+  </section>
+
+  <section id="s15">
+    <h3 class="sec"><span class="num">15</span> Limitación de responsabilidad</h3>
+    <p>En la máxima medida permitida por la legislación ecuatoriana, el Proveedor no será responsable
+    por daños indirectos, incidentales, especiales, punitivos o consecuenciales, ni por lucro cesante,
+    pérdida de datos, de ingresos o de oportunidades de negocio, derivados del uso o imposibilidad de
+    uso del Servicio.</p>
+    <p>La responsabilidad total y acumulada del Proveedor por cualquier reclamo relacionado con el
+    Servicio se limitará al monto efectivamente pagado por el Cliente por la suscripción durante los
+    <strong>tres (3)</strong> meses anteriores al hecho que originó el reclamo.</p>
+    <div class="callout">Estas limitaciones no aplican al dolo o culpa grave del Proveedor, ni a los
+    supuestos en que la ley no permita limitar la responsabilidad.</div>
+    <a class="back" href="#top">↑ Volver al inicio</a>
+  </section>
+
+  <section id="s16">
+    <h3 class="sec"><span class="num">16</span> Protección de datos personales</h3>
+    <p>El tratamiento de datos personales se rige por la <strong>Ley Orgánica de Protección de Datos
+    Personales (LOPDP)</strong> del Ecuador, su Reglamento y la Política de Privacidad de MesaGo, que
+    forma parte integrante de estos Términos.</p>
+    <ul>
+      <li><strong>Responsable del tratamiento:</strong> respecto de las cuentas de usuarios del
+      Servicio, el Proveedor. Respecto de los datos de los clientes finales del establecimiento, el
+      Cliente actúa como responsable y el Proveedor como <strong>encargado del tratamiento</strong>.</li>
+      <li><strong>Finalidad:</strong> prestar, operar, mantener y mejorar el Servicio.</li>
+      <li><strong>Base de licitud:</strong> ejecución del contrato, consentimiento y cumplimiento de
+      obligaciones legales, según corresponda.</li>
+      <li><strong>Derechos del titular:</strong> acceso, rectificación, actualización, eliminación,
+      oposición, portabilidad y demás previstos en la LOPDP, ejercitables mediante los canales de
+      contacto de la cláusula 25.</li>
+      <li><strong>Seguridad:</strong> el Proveedor aplica medidas técnicas y organizativas razonables,
+      incluyendo cifrado en tránsito y control de accesos.</li>
+      <li><strong>Encargados / infraestructura:</strong> el Servicio se apoya en proveedores de
+      infraestructura en la nube que actúan bajo instrucciones del Proveedor y con obligaciones de
+      confidencialidad y seguridad.</li>
+    </ul>
+    <a class="back" href="#top">↑ Volver al inicio</a>
+  </section>
+
+  <section id="s17">
+    <h3 class="sec"><span class="num">17</span> Confidencialidad</h3>
+    <p>Cada parte se obliga a mantener la confidencialidad de la información no pública a la que acceda
+    con ocasión de esta relación, y a utilizarla únicamente para los fines del Servicio. Esta
+    obligación subsiste tras la terminación del contrato y no aplica a información de dominio público o
+    cuya divulgación sea exigida por autoridad competente.</p>
+    <a class="back" href="#top">↑ Volver al inicio</a>
+  </section>
+
+  <section id="s18">
+    <h3 class="sec"><span class="num">18</span> Indemnización</h3>
+    <p>El Usuario mantendrá indemne al Proveedor, sus representantes y colaboradores, frente a
+    cualquier reclamo, pérdida, daño o gasto (incluidos honorarios de defensa legal razonables)
+    derivados de: (i) el incumplimiento de estos Términos; (ii) el Contenido del Usuario; (iii) el uso
+    indebido del Servicio; o (iv) la infracción de derechos de terceros o de la ley.</p>
+    <a class="back" href="#top">↑ Volver al inicio</a>
+  </section>
+
+  <section id="s19">
+    <h3 class="sec"><span class="num">19</span> Modificaciones a los Términos</h3>
+    <p>El Proveedor podrá modificar estos Términos en cualquier momento. Las modificaciones se
+    comunicarán a través de la Aplicación o por los canales de contacto y entrarán en vigor a partir de
+    su publicación o en la fecha que se indique. El uso continuado del Servicio tras la entrada en
+    vigor implica la aceptación de los Términos modificados. Si el Usuario no está de acuerdo, deberá
+    cesar el uso del Servicio.</p>
+    <a class="back" href="#top">↑ Volver al inicio</a>
+  </section>
+
+  <section id="s20">
+    <h3 class="sec"><span class="num">20</span> Fuerza mayor y caso fortuito</h3>
+    <p>El Proveedor no será responsable por incumplimientos o retrasos ocasionados por hechos de fuerza
+    mayor o caso fortuito, conforme al Código Civil ecuatoriano, incluyendo, sin limitarse: fallas de
+    telecomunicaciones o energía, ciberataques, desastres naturales, actos de autoridad, conflictos
+    sociales o pandemias.</p>
+    <a class="back" href="#top">↑ Volver al inicio</a>
+  </section>
+
+  <section id="s21">
+    <h3 class="sec"><span class="num">21</span> Cesión y subcontratación</h3>
+    <p>El Usuario no podrá ceder su posición contractual sin autorización escrita del Proveedor. El
+    Proveedor podrá ceder el contrato o subcontratar parte de la prestación (por ejemplo,
+    infraestructura en la nube), manteniendo la responsabilidad por el cumplimiento del Servicio.</p>
+    <a class="back" href="#top">↑ Volver al inicio</a>
+  </section>
+
+  <section id="s22">
+    <h3 class="sec"><span class="num">22</span> Notificaciones</h3>
+    <p>Las comunicaciones al Usuario se realizarán a través de la Aplicación, del correo electrónico
+    registrado o de los medios que el Proveedor habilite. Las comunicaciones al Proveedor se dirigirán
+    al correo indicado en la cláusula 25. Las notificaciones electrónicas se entienden válidas conforme
+    a la Ley de Comercio Electrónico, Firmas y Mensajes de Datos.</p>
+    <a class="back" href="#top">↑ Volver al inicio</a>
+  </section>
+
+  <section id="s23">
+    <h3 class="sec"><span class="num">23</span> Ley aplicable y solución de controversias</h3>
+    <p>Estos Términos se rigen e interpretan conforme a las leyes de la <strong>República del
+    Ecuador</strong>. Para toda controversia derivada de este contrato, las partes procurarán primero
+    una solución directa y de buena fe.</p>
+    <p>De no llegar a un acuerdo, la controversia se someterá a <strong>mediación</strong> en un centro
+    de mediación legalmente autorizado de la ciudad de <strong>Guayaquil</strong>. Si la mediación
+    no prospera, las partes se someten a la jurisdicción de los <strong>jueces competentes de
+    Guayaquil</strong>, renunciando a cualquier otro fuero, sin perjuicio de los derechos que la
+    ley reconoce al consumidor de acudir a la autoridad de protección al consumidor.</p>
+    <a class="back" href="#top">↑ Volver al inicio</a>
+  </section>
+
+  <section id="s24">
+    <h3 class="sec"><span class="num">24</span> Disposiciones generales</h3>
+    <ul>
+      <li><strong>Integridad:</strong> estos Términos, junto con la Política de Privacidad y el plan
+      contratado, constituyen el acuerdo íntegro entre las partes.</li>
+      <li><strong>Divisibilidad:</strong> si alguna cláusula fuese declarada nula o inaplicable, las
+      demás mantendrán su plena vigencia.</li>
+      <li><strong>No renuncia:</strong> la tolerancia de una parte ante el incumplimiento de la otra no
+      constituye renuncia a sus derechos.</li>
+      <li><strong>Encabezados:</strong> los títulos son referenciales y no afectan la interpretación.</li>
+      <li><strong>Idioma:</strong> la versión en español prevalece sobre cualquier traducción.</li>
+    </ul>
+    <a class="back" href="#top">↑ Volver al inicio</a>
+  </section>
+
+  <section id="s25">
+    <h3 class="sec"><span class="num">25</span> Contacto</h3>
+    <p>Para consultas, ejercicio de derechos sobre datos personales, soporte o notificaciones:</p>
+    <table>
+      <tr><th>Titular</th><td>Zyntech Solutions</td></tr>
+      <tr><th>RUC</th><td>0929843639001</td></tr>
+      <tr><th>Domicilio</th><td>Guayaquil, Ecuador</td></tr>
+      <tr><th>Sitio web</th><td><a href="https://zyntechsolutions.netlify.app">https://zyntechsolutions.netlify.app</a></td></tr>
+      <tr><th>Teléfono</th><td>+593 97 899 2169</td></tr>
+    </table>
+    <a class="back" href="#top">↑ Volver al inicio</a>
+  </section>
+
+</main>
+
+<footer>
+  <div class="fi">
+    <p>© <span id="year"></span> <strong>MesaGo</strong> — por Zyntech Solutions. Todos los derechos reservados.</p>
+    <p>Términos y Condiciones · Última actualización: 02/07/2026.</p>
+  </div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
 
