@@ -114,6 +114,48 @@ const SERVICES_DATA = [
     }
 ];
 
+
+// =========================
+// DATA - Productos propios
+// =========================
+// A diferencia de SERVICES_DATA (lo que hacemos por encargo), esto son
+// productos terminados de Zyntech que cualquiera puede usar hoy. Por eso viven
+// en su propia sección y cada uno lleva enlace: no se contrata, se entra.
+//
+// Para añadir el siguiente producto basta con otro objeto en esta lista.
+
+// ----------------------------------------------------------------------------
+// AQUI VA EL ENLACE DE CERTI
+// ----------------------------------------------------------------------------
+// CERTI ya no vive dentro de este sitio: es un proyecto de Netlify aparte, para
+// que publicar una cosa no obligue a republicar la otra.
+//
+// Pon abajo la direccion que te dio Netlify, sin barra al final. Es el UNICO
+// sitio que hay que tocar: de aqui salen todos los enlaces de la tarjeta.
+//
+// Mientras este vacio, la seccion de Productos NO se pinta. Es a proposito:
+// vale mas no ensenar el producto que ensenarlo con botones que no llevan a
+// ninguna parte.
+
+const CERTI_URL = 'https://certi-reservas.netlify.app';
+
+
+const PRODUCTS_DATA = [
+    {
+        id: 'certi',
+        name: 'CERTI',
+        tagline: 'Reservas y agenda para tu negocio',
+        description: 'Tus clientes reservan solos desde el celular y tu controlas la agenda, el personal y los turnos del dia. Barberias, spas, consultorios, talleres, veterinarias y mas.',
+        badge: 'Disponible',
+        logo: CERTI_URL + '/logo.png',
+        highlights: ['Reserva en 3 toques', 'Varias sucursales', 'Turnos sin cita previa'],
+        actions: [
+            { label: 'Conocer CERTI', href: CERTI_URL + '/', primary: true, external: true },
+            { label: 'Descargar la app', href: 'https://play.google.com/store/apps/details?id=com.turnosync.app', external: true }
+        ]
+    }
+];
+
 // =========================
 // COMPONENTS - Renderizado
 // =========================
@@ -135,9 +177,61 @@ const Components = {
         `).join('');
     },
 
+    // Renderiza las tarjetas de productos
+    renderProducts() {
+        const container = document.getElementById('products-container');
+        if (!container) return;
+
+        // Sin direccion configurada no hay nada que ensenar. Se esconde la
+        // seccion entera, no solo las tarjetas, para que no quede un titulo
+        // flotando sobre un hueco vacio.
+        if (!CERTI_URL) {
+            const seccion = document.getElementById('productos');
+            if (seccion) seccion.style.display = 'none';
+
+            // Y todo lo que apunta a ella: el enlace del menu y el boton de
+            // la portada. Un enlace que baja a una seccion escondida deja la
+            // pagina quieta y parece que esta rota.
+            document.querySelectorAll('a[href="#productos"]')
+                .forEach(a => a.style.display = 'none');
+            return;
+        }
+
+        container.innerHTML = PRODUCTS_DATA.map(p => {
+            const highlights = p.highlights
+                .map(h => `<li>${h}</li>`)
+                .join('');
+
+            const actions = p.actions.map(a => `
+                <a href="${a.href}"
+                   class="btn ${a.primary ? 'btn-primary' : 'btn-secondary'}"
+                   ${a.external ? 'target="_blank" rel="noopener noreferrer"' : ''}>
+                    ${a.label}
+                </a>
+            `).join('');
+
+            return `
+                <article class="product-card">
+                    <div class="product-head">
+                        <img class="product-logo" src="${p.logo}" alt="${p.name}" loading="lazy">
+                        <div>
+                            <h3 class="product-name">${p.name}</h3>
+                            <p class="product-tagline">${p.tagline}</p>
+                        </div>
+                        <span class="product-badge">${p.badge}</span>
+                    </div>
+                    <p class="product-description">${p.description}</p>
+                    <ul class="product-highlights">${highlights}</ul>
+                    <div class="product-actions">${actions}</div>
+                </article>
+            `;
+        }).join('');
+    },
+
     // Inicializa todos los componentes
     init() {
         this.renderServices();
+        this.renderProducts();
     }
 };
 

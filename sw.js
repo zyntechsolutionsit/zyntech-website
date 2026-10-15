@@ -1,6 +1,6 @@
 // Service Worker para Zyntech Solutions IT
 // Versión de caché - incrementar cuando hagas cambios
-const CACHE_VERSION = 'zyntech-v1.0.0';
+const CACHE_VERSION = 'zyntech-v1.1.0';
 const CACHE_NAME = `${CACHE_VERSION}-static`;
 const DYNAMIC_CACHE = `${CACHE_VERSION}-dynamic`;
 
@@ -68,8 +68,34 @@ self.addEventListener('fetch', (event) => {
         return;
     }
 
-    // Estrategia Cache First para archivos estáticos
-    if (STATIC_ASSETS.some(asset => request.url.includes(asset))) {
+    // ── Solo se interceptan los GET ──────────────────────────────────────────
+    // La Cache API únicamente sabe guardar GET: `cache.put()` con un POST lanza
+    // TypeError. Sin este corte, cualquier envío de formulario o llamada a una
+    // API —como las reservas de /certi/, que van por POST a Supabase— acababa
+    // en un error dentro del Service Worker.
+    if (request.method !== 'GET') {
+        return;
+    }
+
+    // ── Nada de otros dominios, salvo las fuentes ────────────────────────────
+    // Supabase, EmailJS y el CDN devuelven datos que cambian a cada segundo;
+    // cachearlos sería servir horarios viejos y turnos que ya no existen.
+    const mismoOrigen = url.origin === self.location.origin;
+    const esFuente = url.hostname.endsWith('fonts.googleapis.com') ||
+                     url.hostname.endsWith('fonts.gstatic.com');
+    if (!mismoOrigen && !esFuente) {
+        return;
+    }
+
+    // ── Cache First solo para los estáticos de verdad ────────────────────────
+    // Antes esto era `request.url.includes(asset)` y, como '/' está en la lista,
+    // TODA petición entraba aquí: la web se servía desde caché para siempre y
+    // cualquier cambio quedaba invisible hasta subir la versión del SW.
+    const esEstatico = mismoOrigen
+        ? STATIC_ASSETS.includes(url.pathname) || url.pathname === '/'
+        : STATIC_ASSETS.includes(request.url);
+
+    if (esEstatico) {
         event.respondWith(
             caches.match(request)
                 .then(cachedResponse => {
