@@ -147,11 +147,27 @@ const PRODUCTS_DATA = [
         tagline: 'Reservas y agenda para tu negocio',
         description: 'Tus clientes reservan solos desde el celular y tu controlas la agenda, el personal y los turnos del dia. Barberias, spas, consultorios, talleres, veterinarias y mas.',
         badge: 'Disponible',
-        logo: CERTI_URL + '/logo.png',
+        // Los logos se sirven desde este mismo sitio y no desde el de cada
+        // producto: si CERTI se cayera, esta seccion seguiria pintandose.
+        logo: 'assets/producto-certi.png',
         highlights: ['Reserva en 3 toques', 'Varias sucursales', 'Turnos sin cita previa'],
         actions: [
             { label: 'Conocer CERTI', href: CERTI_URL + '/', primary: true, external: true },
             { label: 'Descargar la app', href: 'https://play.google.com/store/apps/details?id=com.turnosync.app', external: true }
+        ]
+    },
+    {
+        id: 'kaudex',
+        name: 'KAUDEX',
+        tagline: 'Tus finanzas personales, sin internet',
+        description: 'Controla ingresos, gastos y deudas desde el celular. Funciona sin conexion: los datos viven en tu telefono, no en la nube. Pensado para Latinoamerica, con 17 monedas.',
+        badge: 'Disponible',
+        logo: 'assets/producto-kaudex.png',
+        highlights: ['Funciona sin internet', '17 monedas', 'Control de deudas'],
+        // Solo la app: KAUDEX no tiene sitio propio, asi que una segunda accion
+        // seria un boton de relleno.
+        actions: [
+            { label: 'Descargar la app', href: 'https://play.google.com/store/apps/details?id=com.monetariax.app', primary: true, external: true }
         ]
     }
 ];
