@@ -263,10 +263,27 @@ body {
    SECTIONS
    ========================= */
 .section {
+    /* Antes: min-height 100vh + flex centrado.
+       Eso obligaba a CADA seccion a medir una pantalla entera tuviera el
+       contenido que tuviera. Una seccion de tres tarjetas cortas se estiraba
+       igual y dejaba medio monitor vacio arriba y abajo.
+       Ahora la seccion mide lo que mide su contenido y el aire lo pone el
+       padding, que es lo que se puede ajustar sin romper nada. */
+    padding: 5rem 1rem;
+}
+
+/* La portada si ocupa la pantalla completa: ahi el espacio es el diseno,
+   no un hueco. */
+.hero-section {
     min-height: 100vh;
-    padding: 6rem 1rem 4rem;
     display: flex;
     align-items: center;
+}
+
+/* Dos secciones oscuras seguidas se leen como una sola si no hay una linea
+   que las separe. */
+.section + .section {
+    border-top: 1px solid rgba(51, 65, 85, 0.4);
 }
 
 .container {
@@ -807,93 +824,135 @@ body {
 .section-subtitle {
     text-align: center;
     color: var(--color-text-secondary);
-    margin-top: -2rem;
+    /* El margen negativo de antes dependia de que el titulo tuviera
+       exactamente 3rem abajo. Mejor que el titulo decida su propio espacio
+       cuando le sigue un subtitulo. */
     margin-bottom: 3rem;
     font-size: 1.05rem;
+    max-width: 42rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-title:has(+ .section-subtitle) {
+    margin-bottom: 1rem;
 }
 
 .products-grid {
     display: grid;
-    /* 380px y no 280 como los servicios: estas tarjetas llevan lista de
-       ventajas y dos botones, y apretadas se leen mal. */
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 1.5rem;
+    /* minmax con tope de 26rem y la rejilla centrada. Con un solo producto la
+       tarjeta no se estira hasta los 1200px del contenedor -quedaba una barra
+       enorme y vacia-; con dos o tres se reparten solas. Anadir productos a
+       PRODUCTS_DATA no pide tocar nada de aqui. */
+    grid-template-columns: repeat(auto-fit, minmax(19rem, 26rem));
+    justify-content: center;
+    gap: 2rem;
 }
 
 .product-card {
     background: var(--color-bg-card);
     border: 1px solid var(--color-border);
-    border-radius: var(--border-radius);
-    padding: 2rem;
+    border-radius: 1.25rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
     transition: all var(--transition-speed);
     animation: fadeInUp 0.6s ease-out backwards;
 }
 
 .product-card:hover {
     border-color: var(--color-primary);
-    transform: translateY(-5px);
+    transform: translateY(-6px);
     box-shadow: var(--shadow-glow);
 }
 
-.product-head {
+/* ---- Cabecera visual ----
+   El logo tenia 3,25rem y vivia en una fila junto al texto: parecia un icono
+   de lista, no un producto. Aqui manda la imagen. */
+.product-visual {
+    position: relative;
+    padding: 2.5rem 1.5rem;
     display: flex;
     align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.25rem;
+    justify-content: center;
+    background:
+        radial-gradient(circle at 50% 120%, rgba(34, 211, 238, 0.18), transparent 70%),
+        linear-gradient(135deg, rgba(59, 130, 246, 0.10), rgba(168, 85, 247, 0.10));
+    border-bottom: 1px solid var(--color-border);
 }
 
 .product-logo {
-    width: 3.25rem;
-    height: 3.25rem;
-    border-radius: 0.875rem;
+    width: 5.5rem;
+    height: 5.5rem;
+    border-radius: 1.25rem;
     object-fit: cover;
-    flex-shrink: 0;
     background: var(--color-bg-secondary);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+    transition: transform var(--transition-speed);
 }
 
-.product-name {
-    font-size: 1.5rem;
-    font-weight: 800;
-    letter-spacing: 0.5px;
-    line-height: 1.2;
-}
-
-.product-tagline {
-    color: var(--color-text-secondary);
-    font-size: 0.9rem;
-    margin-top: 0.15rem;
+.product-card:hover .product-logo {
+    transform: scale(1.06);
 }
 
 .product-badge {
-    margin-left: auto;
-    align-self: flex-start;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
     font-size: 0.7rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    padding: 0.3rem 0.65rem;
+    padding: 0.3rem 0.7rem;
     border-radius: 999px;
-    background: rgba(34, 211, 238, 0.12);
+    background: rgba(34, 211, 238, 0.14);
     color: var(--color-primary);
-    border: 1px solid rgba(34, 211, 238, 0.3);
+    border: 1px solid rgba(34, 211, 238, 0.35);
     white-space: nowrap;
+    backdrop-filter: blur(6px);
+}
+
+/* ---- Cuerpo ----
+   flex en columna para que los botones queden abajo del todo aunque una
+   tarjeta tenga mas texto que otra. Sin esto, dos tarjetas de distinto largo
+   dejan los botones a distinta altura y se nota. */
+.product-body {
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.product-name {
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    line-height: 1.1;
+}
+
+.product-tagline {
+    color: var(--color-primary);
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-top: 0.3rem;
 }
 
 .product-description {
     color: var(--color-text-secondary);
-    margin-bottom: 1.25rem;
+    font-size: 0.95rem;
+    margin-top: 1rem;
 }
 
 .product-highlights {
     list-style: none;
-    margin-bottom: 1.75rem;
+    margin-top: 1.25rem;
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
 }
 
 .product-highlights li {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     color: var(--color-text-secondary);
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid var(--color-border);
@@ -905,25 +964,25 @@ body {
     display: flex;
     gap: 0.75rem;
     flex-wrap: wrap;
+    /* margin-top auto empuja los botones al fondo de la tarjeta. */
+    margin-top: auto;
+    padding-top: 1.75rem;
 }
 
 .product-actions .btn {
-    flex: 1 1 auto;
+    flex: 1 1 10rem;
     text-align: center;
-    padding: 0.75rem 1.25rem;
+    padding: 0.8rem 1.25rem;
     font-size: 0.95rem;
 }
 
 @media (max-width: 640px) {
     .products-grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 
-    .product-head {
-        flex-wrap: wrap;
-    }
-
-    .product-badge {
-        margin-left: 0;
-    }
+    .product-visual { padding: 2rem 1.5rem; }
+    .product-logo { width: 4.5rem; height: 4.5rem; }
+    .product-body { padding: 1.5rem; }
 }

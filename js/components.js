@@ -197,7 +197,7 @@ const Components = {
             return;
         }
 
-        container.innerHTML = PRODUCTS_DATA.map(p => {
+        container.innerHTML = PRODUCTS_DATA.map((p, i) => {
             const highlights = p.highlights
                 .map(h => `<li>${h}</li>`)
                 .join('');
@@ -211,18 +211,18 @@ const Components = {
             `).join('');
 
             return `
-                <article class="product-card">
-                    <div class="product-head">
+                <article class="product-card" style="animation-delay:${i * 0.1}s">
+                    <div class="product-visual">
                         <img class="product-logo" src="${p.logo}" alt="${p.name}" loading="lazy">
-                        <div>
-                            <h3 class="product-name">${p.name}</h3>
-                            <p class="product-tagline">${p.tagline}</p>
-                        </div>
                         <span class="product-badge">${p.badge}</span>
                     </div>
-                    <p class="product-description">${p.description}</p>
-                    <ul class="product-highlights">${highlights}</ul>
-                    <div class="product-actions">${actions}</div>
+                    <div class="product-body">
+                        <h3 class="product-name">${p.name}</h3>
+                        <p class="product-tagline">${p.tagline}</p>
+                        <p class="product-description">${p.description}</p>
+                        <ul class="product-highlights">${highlights}</ul>
+                        <div class="product-actions">${actions}</div>
+                    </div>
                 </article>
             `;
         }).join('');

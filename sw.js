@@ -1,6 +1,9 @@
 // Service Worker para Zyntech Solutions IT
 // Versión de caché - incrementar cuando hagas cambios
-const CACHE_VERSION = 'zyntech-v1.1.0';
+// Subir esta version es lo que hace que un cambio en el CSS o en el JS llegue
+// a quien ya visito la web: esos ficheros estan en STATIC_ASSETS y se sirven
+// desde cache. Si se toca uno y no se sube la version, el cambio es invisible.
+const CACHE_VERSION = 'zyntech-v1.2.0';
 const CACHE_NAME = `${CACHE_VERSION}-static`;
 const DYNAMIC_CACHE = `${CACHE_VERSION}-dynamic`;
 
